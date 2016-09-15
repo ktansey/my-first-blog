@@ -1,25 +1,21 @@
 <html>
     <head>
-        <title>Katherine's Blog</title>
+        <title>Katherine's blog</title>
     </head>
     <body>
         <div>
             <h1><a href="">Katherine's Blog</a></h1>
         </div>
-	<br />
-        <div>
-            <p>published: 15.09.2015, 12:13</p>
-            <h2><a href="">First Post</a></h2>
-            <p>This is a <em>post</em> to show how things will look on my web page.</p>
-        </div>
-	<br />
-        <div>
-            <p>published: 15.09.2016, 12:14</p>
-            <h2><a href="">The second post</a></h2>
-            <p>A <strong>second</strong> post with more words that are being used to type the tings. .</p>
-            <p>published: 15.09.2016, 12:16 </p>
-	    <h3> An update! </h3>
-	    <p>Just a tiny update to the other post!</p>
-	</div>
+
+	{% for post in posts %}
+    	<div>
+        	<h1><a href="">{{ post.title }}</a></h1>
+        	<p>{{ post.text|linebreaksbr }}</p>
+            <p>published: {{ post.published_date }}</p>
+    	</div>
+        <br />
+        <br />
+	{% endfor %}       
+
     </body>
 </html>
